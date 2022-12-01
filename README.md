@@ -28,4 +28,4 @@ Follow the steps above to install and configure a cron job to run every hour:
 
 ### Cost
 
-Estimated cost is $0.5 per hosted zone per month plus additional cost per DNS requests (none or tiny for a personal setup). [Fuull Route53 princing information](https://aws.amazon.com/es/route53/pricing/). 
+Estimated cost is $0.5 per hosted zone per month plus additional cost per DNS requests (none or tiny for a personal setup). [Complete Route53 pricing information](https://aws.amazon.com/es/route53/pricing/). 
