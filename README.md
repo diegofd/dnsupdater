@@ -25,3 +25,7 @@ Follow the steps above to install and configure a cron job to run every hour:
 ```
 0 *     * * *   diego   cd /home/user/dnsupdater && .venv/bin/python3 dnsupdater.py --hosted-zone-id ZXXXXXXXXXXX --name sub.example.com
 ```
+
+### Cost
+
+Estimated cost is $0.5 per hosted zone per month plus additional cost per DNS requests (none or tiny for a personal setup). [Fuull Route53 princing information](https://aws.amazon.com/es/route53/pricing/). 
