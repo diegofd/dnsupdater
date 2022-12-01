@@ -23,7 +23,7 @@ $ ./dnsupdater.py --hosted-zone-id HOSTED_ZONE_ID --name RECORD_NAME
 
 Follow the steps above to install and configure a cron job to run every hour:
 ```
-0 *     * * *   diego   cd /home/user/dnsupdater && .venv/bin/python3 dnsupdater.py --hosted-zone-id ZXXXXXXXXXXX --name sub.example.com
+0 *     * * *   user   cd /home/user/dnsupdater && .venv/bin/python3 dnsupdater.py --hosted-zone-id ZXXXXXXXXXXX --name sub.example.com
 ```
 
 ### Cost
