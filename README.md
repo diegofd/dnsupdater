@@ -16,6 +16,8 @@ Full documentation [here](https://github.com/cloudflare/python-cloudflare?tab=re
 
 ### How to run
 
+#### From git
+
 ```
 $ pwd
 /home/user 
@@ -24,19 +26,36 @@ $ cd dnsupdater
 $ python3 -m venv .venv
 $ source .venv/bin/activate
 $ pip install -r requirements.txt
+$ cd src
 
 # For AWS
-$ ./dnsupdater.py --name RECORD_NAME route53 --hosted-zone-id HOSTED_ZONE_ID
+$ python3 -m dnsupdater.dnsupdater --name RECORD_NAME route53 --hosted-zone-id HOSTED_ZONE_ID
 
 # For Cloudflare
-$ ./dnsupdater.py --name RECORD_NAME cloudflare --domain DOMAIN
+$ python3 -m dnsupdater.dnsupdater --name RECORD_NAME cloudflare --domain DOMAIN
+```
+
+#### From package
+
+Using virtualenv is recommended to not polute your system.
+
+```
+$ python3 -m venv .venv
+$ source .venv/bin/activate
+$ pip install dnsupdater
+
+# For AWS
+$ dnsupdater --name RECORD_NAME route53 --hosted-zone-id HOSTED_ZONE_ID
+
+# For Cloudflare
+$ dnsupdater --name RECORD_NAME cloudflare --domain DOMAIN
 ```
 
 ### How to schedule it with cron
 
 Follow the steps above to install and configure a cron job to run every hour:
 ```
-0 *     * * *   user   cd /home/user/dnsupdater && .venv/bin/python3 dnsupdater.py --name sub.example.com route53 --hosted-zone-id ZXXXXXXXXXXX 
+0 *     * * *   user   cd /home/user/dnsupdater && .venv/bin/python3 -m dnsupdater.dnsupdater --name sub.example.com route53 --hosted-zone-id ZXXXXXXXXXXX 
 ```
 
 ### Cost
@@ -48,3 +67,7 @@ Estimated cost is $0.5 per hosted zone per month plus additional cost per DNS re
 #### Cloudflare
 
 Free.
+
+### Development
+
+* Packaging documentation: https://packaging.python.org/en/latest/tutorials/packaging-projects/

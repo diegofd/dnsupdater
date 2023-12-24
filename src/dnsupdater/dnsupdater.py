@@ -3,9 +3,9 @@
 import argparse
 import logging
 
-import ip
-import route53 as r53
-import cloudflare as cf
+from . import ip
+from . import route53 as r53
+from . import cloudflare as cf
 
 
 def route53_command(args):
