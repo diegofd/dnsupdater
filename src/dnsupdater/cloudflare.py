@@ -1,6 +1,7 @@
 import logging
 
 import CloudFlare
+import CloudFlare.exceptions
 
 
 def update_dns(domain, name, ip):
@@ -11,7 +12,7 @@ def update_dns(domain, name, ip):
 
     try:
         response = cf.zones.get(params={'name': domain})
-    except CloudFlare.CloudFlareAPIError as e:
+    except CloudFlare.exceptions.CloudFlareAPIError as e:
         logging.error('/zones.get %s - %d %s' % (domain, e, e))
         return False
     except Exception as e:
