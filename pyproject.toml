@@ -10,7 +10,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "dnsupdater"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Diego Fernandez Duran", email="diego@goedi.net" },
 ]
