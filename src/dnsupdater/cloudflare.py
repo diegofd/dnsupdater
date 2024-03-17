@@ -5,7 +5,6 @@ import CloudFlare.exceptions
 
 
 def update_dns(domain, name, ip):
-    ip = '81.39.42.64'
     # Will use ~/.cloudflare/cloudflare.cfg
     # or env var CLOUDFLARE_API_TOKEN
     cf = CloudFlare.CloudFlare()
@@ -38,9 +37,9 @@ def update_dns(domain, name, ip):
     if record:
         record_id = record['id']
         old_ip = record['content']
-        logging.debug(f"Record already exist. Zone {zone_id}, record {record_id}, ip {old_ip}")
+        logging.info(f"Record already exist. Zone {zone_id}, record {record_id}, ip {old_ip}")
         if ip == old_ip:
-            logging.info("IP didn't change. Not updating.")
+            logging.info(f"IP didn't change. Not updating. Old IP {old_ip}, new IP {ip}")
         else:
             response = cf.zones.dns_records.put(zone_id, record_id, data=dns_record)
     else:
